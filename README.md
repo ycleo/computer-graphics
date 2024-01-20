@@ -2,9 +2,9 @@
 
 # Monorepo
 
-- [ ] Yi-Cheng Lee
+- [ ] Yi-Cheng (Leo) Lee
   - **(TODO: Change this heading to your name, because your github name is often not your real name)**
-- [ ] Yi-Cheng Lee[Phonetic spelling](https://dictionary.cambridge.org/us/help/phonetics.html) of your name here* **(TODO: Change this)**
+- [ ] Yi-Cheng Lee [Phonetic spelling](https://dictionary.cambridge.org/us/help/phonetics.html) of your name here* **(TODO: Change this)**
 
 ## Important Documents 
 
