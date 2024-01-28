@@ -1,9 +1,20 @@
+#include <fstream>
 #include "PPM.hpp"
 
 // Constructor loads a filename with the .ppm extension
 PPM::PPM(std::string fileName){
     // TODO:    Load and parse a ppm to get its pixel
     //          data stored properly.
+
+	// open up a file
+	std::ifstream inputFile;
+	inputFile.open(fileName);
+
+    bool foundP3 = false;
+	bool foundDimensions = false;
+	bool foundRange = false;
+	// bool readingPixels = false;
+
 }
 
 // Destructor deletes(delete or delete[]) any memory that has been allocated
