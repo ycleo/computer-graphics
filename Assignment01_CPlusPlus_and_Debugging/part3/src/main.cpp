@@ -1,5 +1,6 @@
 // Include our custom library
 #include "PPM.hpp"
+#include <iostream>
 
 void unitTest1(){
     // Darken Test
