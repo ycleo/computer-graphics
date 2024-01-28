@@ -41,7 +41,7 @@ public:
     // any member variables in a class, and this is useful if we are
     // returning private member variables.
     // inline unsigned char* pixelData() const { return m_PixelData; }
-    inline std::vector<uint8_t> pixelData() const { return m_PixelData; }
+    inline std::vector<uint8_t>* pixelData() const { return m_PixelData; }
 
     // Returns image width
     inline int getWidth() const { return m_width; }
@@ -55,7 +55,7 @@ private:
     // Note: Yes, you are allowed to replace 'uint8_t* m_PixelDatal' with a std::vector<uint8_t> m_PixelData.
     //       In fact, using a std::vector will likely make your life easier.    
     // uint8_t* m_PixelData;
-    std::vector<uint8_t> m_PixelData;
+    std::vector<uint8_t>* m_PixelData;
 
     // Store width and height of image.
     int m_width{0};

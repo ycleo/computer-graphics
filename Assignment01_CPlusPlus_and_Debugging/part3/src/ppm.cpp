@@ -7,7 +7,7 @@
 PPM::PPM(std::string fileName){
     // TODO:    Load and parse a ppm to get its pixel
     //          data stored properly.
-
+    m_PixelData = new std::vector<uint8_t>();
 	// open up a file
 	std::ifstream inputFile;
 	inputFile.open(fileName);
@@ -19,7 +19,7 @@ PPM::PPM(std::string fileName){
 
     // If file successfully open up
 	if (inputFile.is_open()) {
-		std::cout << "file was open\n";
+		std::cout << fileName << " was open\n";
 		std::string line;
 		while (std::getline(inputFile, line)) {
 			std::stringstream stream(line);
@@ -28,7 +28,7 @@ PPM::PPM(std::string fileName){
 			while (stream >> chunk_of_data) {
 				// Handle comments
 				if (chunk_of_data[0] == '#') {
-					std::cout << line << std::endl;
+					std::cout << "comment: " << line << std::endl;
 					break;
 				} 
 				else if (false==foundP3) {
@@ -37,18 +37,17 @@ PPM::PPM(std::string fileName){
 					}
 					foundP3 = true;
 				} else if (false==foundDimensions) {
+                    std::cout << "Found width and height: " << line << std::endl;
 					m_width = std::stoi(chunk_of_data);
 					stream >> chunk_of_data;
 					m_height = std::stoi(chunk_of_data);
 					foundDimensions = true;
 				} else if (false==foundRange) {
-					// mMaxRange = std::stoi(chunk_of_data);
-                    // max range is fixed -> 255
+					std::cout << "Found range: " << line << std::endl;
 					foundRange = true;
 				} else {
                     int data = std::stoi(chunk_of_data);
-                    uint8_t uint8_data = static_cast<uint8_t>(data);
-					m_PixelData.push_back(uint8_data);
+					m_PixelData->push_back((uint8_t)data);
 				}
 			}
 		}
@@ -61,11 +60,23 @@ PPM::PPM(std::string fileName){
 // to occur.
 PPM::~PPM(){
     // TODO: Reclaim any allocated memory
+    delete m_PixelData;
 }
 
 // Saves a PPM Image to a new file.
 void PPM::savePPM(std::string outputFileName) const {
     // TODO: Save a PPM image to disk
+    std::ofstream myFile;
+	myFile.open(outputFileName);
+	myFile << "P3\n";
+	myFile << "# saved by us\n";
+    myFile << getWidth() << " " << getHeight() << '\n';
+	myFile << "255\n";
+    std::vector<uint8_t>* myPixelData = pixelData();
+	for (uint8_t& pixelValue : *myPixelData) {
+		myFile << (int)pixelValue << "\n";
+	}
+	myFile.close();
 }
 
 // Darken halves (integer division by 2) each of the red, green
@@ -74,6 +85,11 @@ void PPM::savePPM(std::string outputFileName) const {
 // 0 in a ppm.
 void PPM::darken(){
     // TODO: Output a 'filtered' PPM image.
+    std::vector<uint8_t>* myPixelData = pixelData();
+	for (uint8_t& pixelValue : *myPixelData) {
+        int darkenValue = (int)pixelValue / 2;
+        pixelValue = (uint8_t)std::clamp(darkenValue, 0, 255);
+	}
 }
 
 // Lighten doubles (integer multiply by 2) each of the red, green
@@ -82,6 +98,11 @@ void PPM::darken(){
 // 255 in a ppm.
 void PPM::lighten(){
     // TODO: Output a 'filtered' PPM image.
+    std::vector<uint8_t>* myPixelData = pixelData();
+	for (uint8_t& pixelValue : *myPixelData) {
+        int lightenValue = (int)pixelValue * 2;
+        pixelValue = std::clamp(lightenValue, 0, 255);
+	}
 }
 
 // Sets a pixel to a specific R,G,B value 
