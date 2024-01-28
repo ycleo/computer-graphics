@@ -9,8 +9,8 @@
   * StackOverflow
   * YouTube
   * C++ books
-* (Optional) What was the most interesting part of the assignment? How would you improve this assignment?
-  I think the most fun part is to learn how to organize a C++ project with header files as interfaces.
+* (Optional) What was the most interesting part of the assignment? How would you improve this assignment? </br>
+  I think the most fun part is to learn how to organize a C++ project with header files as interfaces. Another challenging part is the memory management of the `m_PixelData`. </br>
 
 # Assignment
 
