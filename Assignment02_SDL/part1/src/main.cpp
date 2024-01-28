@@ -47,10 +47,21 @@ void Input(void){
         // TODO https://lazyfoo.net/tutorials/SDL/04_key_presses/index.php
         // Or a video tutorial on keyboard input: https://www.youtube.com/watch?v=piEekEUqvKY
         if(e.type == SDL_KEYDOWN){
-            gSDLGraphicsProgram.SetClearColor(0.5,0.0,0.0,1.0);
-        }else{
-            gSDLGraphicsProgram.SetClearColor(0.0,0.5,0.0,1.0);
+            switch(e.key.keysym.sym) {
+                case SDLK_1:
+                    gSDLGraphicsProgram.SetClearColor(1.0, 0.0, 0.0, 1.0);  // Red
+                    break;
+                case SDLK_2:
+                    gSDLGraphicsProgram.SetClearColor(0.0, 1.0, 0.0, 1.0);  // Green
+                    break;
+                case SDLK_3:
+                    gSDLGraphicsProgram.SetClearColor(0.0, 0.0, 1.0, 1.0);  // Blue
+                    break;
+            }
         }
+        // else{
+        //     gSDLGraphicsProgram.SetClearColor(0.0,0.5,0.0,1.0);
+        // }
 
 	} // End SDL_PollEvent loop.
 
