@@ -2,14 +2,15 @@
 
 *TODO*: Please edit the following information in your assignment
 
-* Name: 
-* How many hours did it take you to complete this assignment? 
-* Did you collaborate or share ideas with any other students/TAs/Professors? 
+* Name: Yi-Cheng Lee
+* How many hours did it take you to complete this assignment? 20~30 hours
+* Did you collaborate or share ideas with any other students/TAs/Professors? No
 * Did you use any external resources? 
-  * (tbd if any)
-  * (tbd if any)
-  * (tbd if any)
+  * StackOverflow
+  * YouTube
+  * C++ books
 * (Optional) What was the most interesting part of the assignment? How would you improve this assignment?
+  I think the most fun part is to learn how to organize a C++ project with header files as interfaces.
 
 # Assignment
 
