@@ -2,13 +2,12 @@
 
 *TODO*: Please edit the following information in your assignment
 
-* Name: 
-* How many hours did it take you to complete this assignment? 
-* Did you collaborate or share ideas with any other students/TAs/Professors? 
+* Name: Yi-Cheng Lee
+* How many hours did it take you to complete this assignment? 10 hours
+* Did you collaborate or share ideas with any other students/TAs/Professors? No
 * Did you use any external resources? 
-  * (tbd if any)
-  * (tbd if any)
-  * (tbd if any)
+  * GeeksForGeeks
+  * https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/
 * (Optional) What was the most interesting part of the assignment? How would you improve this assignment?
 
 # Assignment
